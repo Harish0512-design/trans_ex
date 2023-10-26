@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transactions</title>
+</head>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+{% for transaction in transactions %}
+<p>{{transaction.transaction_amount}}</p>
+<p>{{transaction.trans_date}}</p>
+{% endfor %}
+
+<a href="/export-csv">Export To CSV</a>
+<br/>
+<br/>
+<a href="/export-excel">Export To Excel</a>
+
+</body>
+</html>
